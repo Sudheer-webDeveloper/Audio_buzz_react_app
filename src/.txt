@@ -1,0 +1,24 @@
+/*
+
+const generateUniqueId = () => {
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
+
+    Math.random(): Generates a floating-point number between 0 (inclusive) and 1 (exclusive). For example, it might generate a number like 0.123456789.
+
+    Math.random().toString(36): Converts the random number to a base-36 string. In base-36, the digits include 0-9 and the letters a-z. This turns the random number into a string representation.
+
+    Example: If the random number is 0.123456789, this part might result in something like "0.4f1p3a83u5e".
+
+    .substr(2, 9): Extracts a substring from the generated string. It starts from the character at index 2 and takes 9 characters. This is used to remove the leading '0.' part of the string, ensuring that the resulting string is a valid identifier.
+
+    Example: Continuing from the previous example, this part might result in something like "4f1p3a83u".
+
+    return '_' + ...: Prepends an underscore (_) to the generated string. This is commonly done to ensure that the generated string can be used as an identifier in programming languages, as many languages have specific rules for valid identifier names.
+
+    Example: The final result might be something like "_4f1p3a83u".
+
+So, the generateUniqueId function generates a unique string that starts with an underscore, followed by a random alphanumeric sequence. This is a simple method to create a string that is likely to be unique within a specific context. Keep in mind that this method is not foolproof for all use cases, and for more critical applications, a more sophisticated approach may be necessary.
+
+
+*/

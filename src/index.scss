@@ -1,0 +1,46 @@
+$Amobile:1000px;
+$AMmobile:900px;
+$mobile:800px;
+$Fmobile:700px;
+$Bmobile:600px;
+$Smobile:400px;
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+@mixin mobile{
+  @media (max-width: $mobile){
+      @content
+  }
+};
+@mixin Amobile{
+  @media (max-width: $Amobile){
+      @content
+  }
+};
+@mixin AMmobile{
+  @media (max-width: $AMmobile){
+      @content
+  }
+};
+@mixin Fmobile{
+  @media (max-width: $Fmobile){
+      @content
+  }
+};
+@mixin Bmobile{
+  @media (max-width: $Bmobile){
+      @content
+  }
+};
+@mixin Smobile{
+  @media (max-width: $Smobile){
+      @content
+  }
+};

@@ -1,0 +1,349 @@
+@import "./index.scss";
+
+@mixin flexer($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+body {
+  max-width: 200vw;
+  overflow-x: hidden;
+}
+
+.nav {
+  @include flexer(row);
+  justify-content: space-between;
+  padding: 1px 150px;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  // padding-bottom: 20px;
+
+
+  @include Fmobile {
+    padding: 1px 50px;
+  }
+
+  .logo-text {
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 100;
+      @include Bmobile {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .button {
+    h2 {
+      font-size: 2rem;
+      cursor: pointer;
+      @include Bmobile {
+        margin-top: 10px;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+//App.jsx
+
+.dark-mode {
+  --background: black;
+  --color: white;
+}
+
+.light-mode {
+  --color: white;
+  --background: white;
+}
+
+.app {
+  background: black;
+  color: white;
+  transition: all 0.3s;
+}
+
+.lighten {
+  background: white;
+  color: black;
+  transition: all 0.3s;
+}
+
+.no-audio {
+  width: 90vw;
+  margin: auto;
+  padding-bottom: 40px;
+  font-weight: 400;
+}
+
+// Hero.jsx
+
+.hero {
+  width: 90vw;
+  margin: auto;
+  height: 80vh;
+  @include Bmobile {
+    height: 60vh;
+  }
+  img {
+    width: 100%;
+    border-radius: 40px;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+//FileInput.jsx
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  margin: auto;
+  @include flexer(row);
+  justify-content: flex-start;
+  padding: 40px 0px;
+  .custom-file-upload {
+    position: relative;
+    display: inline-block;
+    @include flexer(row);
+    padding: 10px 10px;
+    padding-right: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    font-weight: 300;
+    background-color: #353941;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    @include Bmobile {
+      padding: 6px 0px;
+      padding-right: 15px;
+      font-size: 14px;
+    }
+
+    .file-select-icon {
+      margin-right: 0px;
+      font-size: 24px;
+      margin-left: 30px;
+      @include Bmobile {
+        margin-left: 20px;
+      }
+    }
+
+    #fileInput {
+      display: none;
+    }
+  }
+  .custom-file-upload:hover {
+    background-color: #ffffff;
+  }
+}
+
+.custom-file-upload:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #000000;
+  transition: width 0.3s ease;
+}
+
+.custom-file-upload:hover:before {
+  width: 100%;
+}
+
+.file-select-icon {
+  display: inline-block;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.custom-file-upload:hover .file-select-icon {
+  transform: scale(1);
+}
+
+///Playlist.jsx
+.playlist-items {
+  width: 90vw;
+  margin: auto;
+  @include Bmobile {
+    width: 95vw;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    // color: #333;
+    font-weight: 500;
+  }
+
+  .audio-items {
+    @include flexer(column);
+    margin-top: 10px;
+    gap: 20px;
+    color: white; 
+    padding: 40px;
+    border-radius: 40px;
+
+    @include Bmobile {
+      padding: 40px 15px;
+    }
+
+    .audio-flex {
+      width: 100%;
+      list-style: none;
+
+      .audio-card {
+        padding: 2px 20px;
+        border-radius: 20px;
+        @include flexer(row);
+        align-items: center;
+        justify-content: space-between;
+        background-color: #E2703A;
+        background-color: #353941;
+        .song-image {
+          position: relative;
+          border-radius: 12px;
+          @include flexer(row);
+          img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+          }
+
+          .play-icon {
+            position: absolute;
+            color: #EEEEEE;
+            z-index: 100;
+          }
+        }
+
+        .song-image-1:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          background-color: rgba(7, 7, 7, 0.452);
+          border-radius: inherit;
+        }
+
+        h5 {
+          flex-grow: 1;
+          font-size:1.2rem;
+          text-align: center;
+          text-transform: capitalize;
+          margin: 0;
+          font-weight: 400;
+
+
+          @include Bmobile {
+            font-size: 14px;
+          }
+        }
+
+        .song-icons {
+          h2 {
+            margin-top: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #EEEEEE;
+
+            @include Bmobile {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .removing-all {
+    @include flexer(row);
+    justify-content: center;
+    width: 90vw;
+    margin: auto;
+    button {
+      color: white;
+      padding: 10px 30px;
+      font-size: 1rem;
+      font-weight: 400;
+      background: rgba(255, 0, 0, 0.815);
+      border: none;
+      outline: none;
+      text-transform: capitalize;
+      border-radius: 10px;
+      cursor: pointer;
+
+      @include Bmobile {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+// AudioFile.jsx
+
+.current-playing {
+  width: 85vw;
+  margin: 40px auto;
+
+  @include Bmobile {
+    width: 90vw;
+  }
+
+  .heading {
+    margin-bottom: 40px;
+  }
+
+  .currently-played {
+    @include flexer(row);
+    justify-content: flex-start;
+    padding: 10px;
+    justify-content: space-between;
+    .audio {
+      @include flexer(row);
+      gap: 50px;
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+    }
+
+    .play-farward-buttons {
+      @include flexer(row);
+      gap: 20px;
+    }
+    h3 {
+      font-size: 2.5rem;
+      cursor: pointer;
+
+      @include Bmobile {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+// AudioFile.jsx
+
+.audio-file {
+  width: 90vw;
+  margin: auto;
+  padding: 40px;
+  audio {
+    width: 100%;
+  }
+}
